@@ -70,8 +70,9 @@ class CustomDropdown extends React.Component {
       [classes.dropdownItemRTL]: rtlActive
     });
     let icon = null;
+    console.log(buttonIcon);
     switch (typeof buttonIcon) {
-      case "function":
+      case "object":
         icon = <this.props.buttonIcon className={classes.buttonIcon} />;
         break;
       case "string":
@@ -189,7 +190,7 @@ CustomDropdown.propTypes = {
     "rose"
   ]),
   buttonText: PropTypes.node,
-  buttonIcon: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  buttonIcon: PropTypes.oneOfType([PropTypes.func, PropTypes.string, PropTypes.object]),
   dropdownList: PropTypes.array,
   buttonProps: PropTypes.object,
   dropup: PropTypes.bool,
