@@ -27,6 +27,7 @@ import { List, ListItem, withStyles } from "@material-ui/core";
 import Favorite from "@material-ui/icons/Favorite";
 
 import footerStyle from "./../../assets/jss/material-kit-react/components/footerStyle";
+import {APP_NAME} from "../../utils/globals";
 
 function Footer({ ...props }) {
   const { classes, whiteFont } = props;
@@ -49,7 +50,7 @@ function Footer({ ...props }) {
                 className={classes.block}
                 target="_blank"
               >
-                Creative Tim
+                  {APP_NAME}
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>

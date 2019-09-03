@@ -1,6 +1,12 @@
 import Home from './../views/home';
+import Restaurants from './../views/restaurant';
 
 const appRoutes = [
+    {
+        path: "/restaurants/city/:id",
+        title: "Restaurants",
+        component: Restaurants
+    },
     {
         path: "/",
         title: "Home",

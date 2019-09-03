@@ -6,29 +6,17 @@ import componentsStyle from "./../../assets/jss/material-kit-react/views/compone
 import Parallax from "../../components/Parallax/Parallax";
 import GridContainer from "../../components/Grid/GridContainer";
 import GridItem from "../../components/Grid/GridItem";
-import Header from "../../components/Header/Header";
-import HeaderLinks from "../../components/Header/HeaderLinks";
-import Footer from "../../components/Footer/Footer";
 import SectionLogin from "./section/SectionSearch";
 import Link from "@material-ui/core/Link";
 import Button from "../../components/CustomButtons/Button";
 import classNames from "classnames";
-import {APP_NAME} from "../../utils/globals";
+import Layout from "../../hoc/layout";
 
-const Index = ({classes, ...rest}) => {
+const Index = ({classes}) => {
     return (
-        <div>
-            <Header
-                brand={APP_NAME}
-                rightLinks={<HeaderLinks />}
-                fixed
-                color="transparent"
-                changeColorOnScroll={{
-                    height: 400,
-                    color: "white"
-                }}
-                {...rest}
-            />
+        <Layout
+            colorProps={{color: 'transparent', onScroll: {height: 400, changeColorTo: 'white'}}}
+        >
             <Parallax image={bgImage}>
                 <div className={classes.container}>
                     <GridContainer>
@@ -53,8 +41,7 @@ const Index = ({classes, ...rest}) => {
                     </Link>
                 </GridItem>
             </div>
-            <Footer />
-        </div>
+        </Layout>
     );
 };
 

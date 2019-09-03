@@ -1,20 +1,3 @@
-/*!
-
-=========================================================
-* Material Kit React - v1.7.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-kit-react
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/material-kit-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
@@ -28,12 +11,14 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
-import AppContext from './../../../context/app-context';
 import FoodItem from "../../../components/widgets/FoodItem";
 import GridContainer from "../../../components/Grid/GridContainer";
 import GridItem from "../../../components/Grid/GridItem";
+import {AppContext} from "../../../utils/global-exports";
+import {navigate} from "../../../routes/methods";
+import {withRouter} from 'react-router-dom';
 
-const SectionSearch = ({classes}) => {
+const SectionSearch = ({classes, history}) => {
 
     const context = React.useContext(AppContext);
     const {location:  {cities, city}} = context;
@@ -42,11 +27,15 @@ const SectionSearch = ({classes}) => {
         context.handleUpdateMainState(({location}) => ({location: {...location, [name]: value}}));
     };
 
+    const handleOrderNow = () => {
+        navigate(history, `restaurants/city/${city}`)
+    };
+
     return (
         <div className={classes.section}>
             <div className={classes.container}>
                 <Card>
-                    <CardHeader color="primary" className={classes.cardHeader}>
+                    <CardHeader onClick={handleOrderNow} color="primary" className={classes.cardHeader}>
                         <h4>Order Now</h4>
                     </CardHeader>
                     <CardBody>
@@ -87,4 +76,4 @@ const SectionSearch = ({classes}) => {
     );
 };
 
-export default withStyles(loginStyle)(SectionSearch);
+export default withRouter(withStyles(loginStyle)(SectionSearch));

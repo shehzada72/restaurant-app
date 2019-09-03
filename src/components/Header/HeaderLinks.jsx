@@ -34,21 +34,21 @@ function HeaderLinks({ ...props }) {
                     buttonIcon={Apps}
                     dropdownList={[
                         <Link to="/" className={classes.dropdownLink}>
-                            All components
+                            Home
                         </Link>,
                         <a
-                            href="https://creativetimofficial.github.io/material-kit-react/#/documentation"
+                            href="https://www.shehzadaslam.com"
                             target="_blank"
                             className={classes.dropdownLink}
                         >
-                            Documentation
+                            About Dev
                         </a>
                     ]}
                 />
             </ListItem>
             <ListItem className={classes.listItem}>
                 <Button
-                    href="https://www.creative-tim.com/product/material-kit-react"
+                    href="https://www.shehzadaslam.com"
                     color="inherit"
                     target="_blank"
                     className={classes.navLink}
@@ -64,7 +64,7 @@ function HeaderLinks({ ...props }) {
                     classes={{ tooltip: classes.tooltip }}
                 >
                     <Button
-                        href="https://twitter.com/CreativeTim"
+                        href="https://twitter.com/PkShehzada"
                         target="_blank"
                         color="inherit"
                         className={classes.navLink}
@@ -77,13 +77,13 @@ function HeaderLinks({ ...props }) {
             <ListItem className={classes.listItem}>
                 <Tooltip
                     id="instagram-facebook"
-                    title="Follow us on facebook"
+                    title="Follow me on facebook"
                     placement={window.innerWidth > 959 ? "top" : "left"}
                     classes={{ tooltip: classes.tooltip }}
                 >
                     <Button
                         color="inherit"
-                        href="https://www.facebook.com/CreativeTim"
+                        href="https://www.facebook.com/shehzada.se"
                         target="_blank"
                         className={classes.navLink}
                     >
@@ -95,17 +95,17 @@ function HeaderLinks({ ...props }) {
             <ListItem className={classes.listItem}>
                 <Tooltip
                     id="instagram-tooltip"
-                    title="Follow us on instagram"
+                    title="Follow me on linkedInn"
                     placement={window.innerWidth > 959 ? "top" : "left"}
                     classes={{ tooltip: classes.tooltip }}
                 >
                     <Button
                         color="inherit"
-                        href="https://www.instagram.com/CreativeTimOfficial"
+                        href="https://www.linkedin.com/in/shehzada-se"
                         target="_blank"
                         className={classes.navLink}
                     >
-                        <i className={classes.socialIcons + " fab fa-instagram"} />
+                        <i className={classes.socialIcons + " fab fa-linkedin"} />
                     </Button>
                 </Tooltip>
             </ListItem>
