@@ -1,3 +1,6 @@
-export const MainState = Object.assign({}, {
-
-});
+export const MainState = {
+    location: {
+        city: '',
+        cities: []
+    }
+};

@@ -16,8 +16,6 @@
 
 */
 import React from "react";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 // @material-ui/icons
@@ -25,35 +23,68 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import Card from "./../../../components/Card/Card";
 import CardHeader from "./../../../components/Card/CardHeader";
 import CardBody from "./../../../components/Card/CardBody";
-
 import loginStyle from "./../../../assets/jss/material-kit-react/views/componentsSections/loginStyle";
-import IntegrationReactSelect from "../../../components/CustomInput/Select";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
+import InputLabel from "@material-ui/core/InputLabel";
+import FormControl from "@material-ui/core/FormControl";
+import AppContext from './../../../context/app-context';
+import FoodItem from "../../../components/widgets/FoodItem";
+import GridContainer from "../../../components/Grid/GridContainer";
+import GridItem from "../../../components/Grid/GridItem";
 
-class SectionSearch extends React.Component {
-  render() {
-    const { classes } = this.props;
+const SectionSearch = ({classes}) => {
+
+    const context = React.useContext(AppContext);
+    const {location:  {cities, city}} = context;
+
+    const handleChange = ({target: {name, value}}) => {
+        context.handleUpdateMainState(({location}) => ({location: {...location, [name]: value}}));
+    };
+
     return (
-      <div className={classes.section}>
-        <div className={classes.container}>
-              <Card>
-                <form className={classes.form}>
-                  <CardHeader color="primary" className={classes.cardHeader}>
-                    <h4>Order Now</h4>
+        <div className={classes.section}>
+            <div className={classes.container}>
+                <Card>
+                    <CardHeader color="primary" className={classes.cardHeader}>
+                        <h4>Order Now</h4>
+                    </CardHeader>
+                    <CardBody>
+                        <FormControl className={classes.formControl}>
+                            <InputLabel htmlFor="age-simple">Location</InputLabel>
+                            <Select
+                                value={city}
+                                onChange={handleChange}
+                                inputProps={{
+                                    name: 'city',
+                                    id: 'age-simple',
+                                }}
+                            >
+                                {cities && (
+                                    cities.map(({id, country}) => (
+                                        <MenuItem key={id} value={id}>{country}</MenuItem>
+                                    ))
+                                )}
 
-                  </CardHeader>
-                  <CardBody>
-                  <IntegrationReactSelect/>
-                  </CardBody>
-                </form>
-              </Card>
+                            </Select>
+                        </FormControl>
+                    </CardBody>
+                </Card>
+
+                <GridContainer>
+                    <GridItem xs={12} sm={12} md={4}>
+                        <FoodItem classes={classes}/>
+                    </GridItem>
+                    <GridItem xs={12} sm={12} md={4}>
+                        <FoodItem classes={classes}/>
+                    </GridItem>
+                    <GridItem xs={12} sm={12} md={4}>
+                        <FoodItem classes={classes}/>
+                    </GridItem>
+                </GridContainer>
+            </div>
         </div>
-      </div>
     );
-  }
-}
-
-SectionSearch.propTypes = {
-  classes: PropTypes.object
 };
 
 export default withStyles(loginStyle)(SectionSearch);

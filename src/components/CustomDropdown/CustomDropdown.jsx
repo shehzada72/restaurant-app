@@ -70,7 +70,6 @@ class CustomDropdown extends React.Component {
       [classes.dropdownItemRTL]: rtlActive
     });
     let icon = null;
-    console.log(buttonIcon);
     switch (typeof buttonIcon) {
       case "object":
         icon = <this.props.buttonIcon className={classes.buttonIcon} />;
