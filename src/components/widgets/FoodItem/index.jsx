@@ -18,13 +18,22 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import {navigate} from "../../../routes/methods";
+import {withRouter} from 'react-router-dom';
+import {AppContext} from "../../../utils/global-exports";
 
-const FoodItem = ({classes, restaurant={}}) => {
+const FoodItem = ({classes, restaurant={}, history}) => {
+    const context = React.useContext(AppContext);
     const [expanded, setExpanded] = React.useState(false);
 
     function handleExpandClick() {
         setExpanded(!expanded);
     }
+
+    const handleNavigateToMenu = () => {
+        context.handleUpdateMainState({restaurant});
+        navigate(history, `/restaurants/${restaurant.id}`)
+    };
 
     return (
         <Card className={classes.card}>
@@ -43,6 +52,7 @@ const FoodItem = ({classes, restaurant={}}) => {
                 subheader="September 14, 2016"
             />
             <CardMedia
+                onClick={handleNavigateToMenu}
                 className={classes.media}
                 image={restaurant.logo}
                 title="Paella dish"
@@ -114,4 +124,4 @@ const FoodItem = ({classes, restaurant={}}) => {
     );
 };
 
-export default withStyles(foodItemStyles)(FoodItem);
+export default withRouter(withStyles(foodItemStyles)(FoodItem));

@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import Slide from '@material-ui/core/Slide';
 import Card from "../Card/Card";
@@ -16,6 +15,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import GridContainer from "../Grid/GridContainer";
 import GridItem from "../Grid/GridItem";
 import {AppContext} from "../../utils/global-exports";
+import Button from "../CustomButtons/Button";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -41,7 +41,7 @@ const LoginModal = ({classes}) => {
                 <div>
                     <div className={classes.container}>
                         <GridContainer justify="center">
-                            <GridItem xs={12} sm={12} md={8}>
+                            <GridItem xs={12} sm={12} md={12}>
                                 <Card>
                                     <form className={classes.form}>
                                         <CardHeader color="primary" className={classes.cardHeader}>
@@ -84,7 +84,6 @@ const LoginModal = ({classes}) => {
                                                 </Button>
                                             </div>
                                         </CardHeader>
-                                        <p className={classes.divider}>Or Be Classical</p>
                                         <CardBody>
                                             <CustomInput
                                                 labelText="First Name..."
@@ -136,8 +135,8 @@ const LoginModal = ({classes}) => {
                                             />
                                         </CardBody>
                                         <CardFooter className={classes.cardFooter}>
-                                            <Button simple color="primary" size="lg">
-                                                Get started
+                                            <Button default color="primary" size="lg">
+                                                Login
                                             </Button>
                                         </CardFooter>
                                     </form>

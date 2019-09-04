@@ -11,9 +11,6 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
-import FoodItem from "../../../components/widgets/FoodItem";
-import GridContainer from "../../../components/Grid/GridContainer";
-import GridItem from "../../../components/Grid/GridItem";
 import {AppContext} from "../../../utils/global-exports";
 import {navigate} from "../../../routes/methods";
 import {withRouter} from 'react-router-dom';
@@ -36,7 +33,7 @@ const SectionSearch = ({classes, history}) => {
             <div className={classes.container}>
                 <Card>
                     <CardHeader onClick={handleOrderNow} color="primary" className={classes.cardHeader}>
-                        <h4>Order Now</h4>
+                        <h4>Start Ordering</h4>
                     </CardHeader>
                     <CardBody>
                         <FormControl className={classes.formControl}>
@@ -60,17 +57,6 @@ const SectionSearch = ({classes, history}) => {
                     </CardBody>
                 </Card>
 
-                <GridContainer>
-                    <GridItem xs={12} sm={12} md={4}>
-                        <FoodItem/>
-                    </GridItem>
-                    <GridItem xs={12} sm={12} md={4}>
-                        <FoodItem/>
-                    </GridItem>
-                    <GridItem xs={12} sm={12} md={4}>
-                        <FoodItem/>
-                    </GridItem>
-                </GridContainer>
             </div>
         </div>
     );
