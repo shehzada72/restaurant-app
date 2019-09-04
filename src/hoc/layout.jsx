@@ -15,7 +15,7 @@ const Layout = ({
                 rightLinks={<HeaderLinks />}
                 fixed
                 color={colorProps ? colorProps.color : 'white'}
-                changeColorOnScroll={colorProps ? colorProps.onScroll : {
+                changeColorOnScroll={{
                     height: 400,
                     color: 'white'
                 }}

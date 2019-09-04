@@ -62,13 +62,13 @@ const SectionSearch = ({classes, history}) => {
 
                 <GridContainer>
                     <GridItem xs={12} sm={12} md={4}>
-                        <FoodItem classes={classes}/>
+                        <FoodItem/>
                     </GridItem>
                     <GridItem xs={12} sm={12} md={4}>
-                        <FoodItem classes={classes}/>
+                        <FoodItem/>
                     </GridItem>
                     <GridItem xs={12} sm={12} md={4}>
-                        <FoodItem classes={classes}/>
+                        <FoodItem/>
                     </GridItem>
                 </GridContainer>
             </div>

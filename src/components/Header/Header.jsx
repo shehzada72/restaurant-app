@@ -15,6 +15,8 @@ import Drawer from "@material-ui/core/Drawer";
 import Menu from "@material-ui/icons/Menu";
 // core components
 import headerStyle from "./../../assets/jss/material-kit-react/components/headerStyle";
+import {navigate} from "../../routes/methods";
+import {withRouter} from 'react-router-dom';
 
 class Header extends React.Component {
   constructor(props) {
@@ -73,7 +75,7 @@ class Header extends React.Component {
       [classes.absolute]: absolute,
       [classes.fixed]: fixed
     });
-    const brandComponent = <Button className={classes.title}>{brand}</Button>;
+    const brandComponent = <Button onClick={() => navigate(this.props.history, '/')} className={classes.title}>{brand}</Button>;
     return (
       <AppBar className={appBarClasses}>
         <Toolbar className={classes.container}>
@@ -165,4 +167,4 @@ Header.propTypes = {
   })
 };
 
-export default withStyles(headerStyle)(Header);
+export default withRouter(withStyles(headerStyle)(Header));
