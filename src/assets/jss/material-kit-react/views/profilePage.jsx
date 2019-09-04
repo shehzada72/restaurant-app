@@ -4,6 +4,7 @@ import imagesStyle from "assets/jss/material-kit-react/imagesStyles.jsx";
 
 const profilePageStyle = {
   container,
+  // container: {...container, marginRight: 0, marginLeft: 0},
   profile: {
     textAlign: "center",
     "& img": {
