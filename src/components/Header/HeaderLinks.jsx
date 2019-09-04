@@ -10,8 +10,9 @@ import ListItem from "@material-ui/core/ListItem";
 import Tooltip from "@material-ui/core/Tooltip";
 
 // @material-ui/icons
-import { Apps, CloudDownload } from "@material-ui/icons";
-
+import { Apps } from "@material-ui/icons";
+import LockOpenIcon from '@material-ui/icons/LockOpen';
+import {AppContext} from "../../utils/global-exports";
 // core components
 import CustomDropdown from "./../CustomDropdown/CustomDropdown";
 import Button from '@material-ui/core/Button';
@@ -20,6 +21,12 @@ import headerLinksStyle from "./../../assets/jss/material-kit-react/components/h
 
 function HeaderLinks({ ...props }) {
     const { classes } = props;
+    const context = React.useContext(AppContext);
+
+    const handleLogin = () => {
+        context.handleUpdateMainState({dialogs: {...context.dialogs, login: true}});
+    };
+
     return (
         <List className={classes.list}>
             <ListItem className={classes.listItem}>
@@ -45,16 +52,7 @@ function HeaderLinks({ ...props }) {
                     ]}
                 />
             </ListItem>
-            <ListItem className={classes.listItem}>
-                <Button
-                    href="https://www.shehzadaslam.com"
-                    color="inherit"
-                    target="_blank"
-                    className={classes.navLink}
-                >
-                    <CloudDownload className={classes.icons} /> Download
-                </Button>
-            </ListItem>
+
             <ListItem className={classes.listItem}>
                 <Tooltip
                     id="instagram-twitter"
@@ -107,6 +105,16 @@ function HeaderLinks({ ...props }) {
                         <i className={classes.socialIcons + " fab fa-linkedin"} />
                     </Button>
                 </Tooltip>
+            </ListItem>
+
+            <ListItem className={classes.listItem}>
+                <Button
+                    onClick={handleLogin}
+                    color="inherit"
+                    className={classes.navLink}
+                >
+                    <LockOpenIcon className={classes.icons} /> Login
+                </Button>
             </ListItem>
         </List>
     );

@@ -3,6 +3,7 @@ import Header from "../components/Header/Header";
 import {APP_NAME} from "../utils/globals";
 import HeaderLinks from "../components/Header/HeaderLinks";
 import Footer from "../components/Footer/Footer";
+import LoginDialog from "../components/Dialog/login";
 
 const Layout = ({
                     children,
@@ -23,6 +24,8 @@ const Layout = ({
             {children}
 
             <Footer />
+
+            <LoginDialog/>
         </div>
     );
 };

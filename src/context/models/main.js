@@ -4,6 +4,10 @@ export const MainState = {
         cities: []
     },
 
+    dialogs: {
+        login: false
+    },
+
     restaurant: {},
     restaurants: [],
 };

@@ -19,7 +19,7 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
-const FoodItem = ({classes, restaurant}) => {
+const FoodItem = ({classes, restaurant={}}) => {
     const [expanded, setExpanded] = React.useState(false);
 
     function handleExpandClick() {

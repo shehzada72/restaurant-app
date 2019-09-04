@@ -96,6 +96,9 @@ const loginStyle = {
     },
     card: {
         maxWidth: 345,
+    },
+    modalBody: {
+        background: 'transparent'
     }
 };
 
